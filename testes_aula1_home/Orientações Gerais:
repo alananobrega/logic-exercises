@@ -1,0 +1,66 @@
+Orientações Gerais:
+A)  Para todos os exercícios abaixo, tente capturar a entrada a partir da linha de comando.
+    Um exemplo de comando para os exercícios seria equivalente ao seguinte:
+    go run main.go "Amor a Roma" // onde "Amor a Roma" é o input para a aplicação
+B)  Tente o máximo que conseguir, entretanto não se frustre caso não consiga fazer algum desses exercícios. 
+    Lembre-se: a idéia aqui não é te testar, e sim te desenvolver, então caso esteja travada em algum destes, respire, toma um ar para si própria e continua no dia seguinte.
+    O descanso para a mente é tão importante quanto o exercício em si.
+C)  Q: "Posso pesquisar na internet?"
+    A: Sim, você pode pesquisar "como fazer um loop em Go" ou "como receber parametros pela linha de comando em Go", entretanto (e obviamente) não faz sentido pesquisas como "como somar termos da sequencia fibonacci a partir do índice indicado".
+    É preferível que você deixe o exercício em branco caso não consiga fazer e fazemos juntos na monitoria do que simplesmente copiar o código da internet e não aprender nada com isso.
+D)  Tente calcular a complexidade de todos os problemas resolvidos e deixar comentado após a declaração da função.
+E)  Não precisa me enviar os programas após concluídos. Mantenha eles salvos em sua máquina e nós discutiremos na próxima monitoria.
+F)  Bons divertimentos e bons estudos! :D
+Exercícios:
+1) 
+    A sequência Fibonacci é gerada de tal forma que a soma de 2 elementos prévios sempre geram o elemento seguinte. O início da sequência em questão é o seguinte:
+    1, 1, 2, 3, 5, 8, 13, 21, 34, ...
+    (
+        Isto é:
+        1 + 1 = 2
+        2 + 1 = 3
+        3 + 2 = 5
+        E assim consecutivamente
+    )
+    Se somarmos os 7 primeiros termos da sequência, teríamos o seguinte resultado:
+    1 + 1 + 2 + 3 + 5 + 8 + 13 = 33
+    Sendo assim, crie um algoritmo que dado determinado índice, calcule a soma de todos os termos da sequência Fibonacci até o índice em questão.
+    Exemplo:
+    somaFibonnaci(7) // Resultado = 33
+2)
+    Sabemos que existem determindadas frases, quando lidas ao contrário possuem o mesmo "resultado" de quando lidas em seu sentido natural, e a estas frases damos o nome de "Palíndromos".
+    Exemplos de Palíndromos podem ser notados abaixo:
+        "Amor a Roma"
+        "Anotaram a data da maratona"
+    Desenvolva um algoritmo que, a partir de determinada frase, retorne a mesma invertida e informe caso a mesma seja um palíndromo.
+    Exemplo:
+    inverteFrase("Meu nome é El Kabong") // Resultado = "gnobaK lE é emon ueM", False
+3)
+    Muitas vezes, quando estamos analisando determinada lista, surge-se a necessidade de remover os valores únicos dessa lista. E a essa nova lista de valores gerados, damos o nome de "valores únicos" (Unique).
+    Um exemplo dessa transformação pode ser observado abaixo:
+    Array:  [ 2, 3, 8, 9, 3, 2, 6, 4, 5, 1, 5, 5, 6, 5, 4, 7, 5, 2 ]
+    Unique: [ 2, 3, 8, 9, 6, 4, 5, 1, 7 ]
+    Dito isto, desenvolva um algoritmo que remova os valores repetidos de um array e o retorne para o usuário.
+    Lembre-se os elementos não precisam estar na ordem!
+4)
+    O algoritmo mais básico de ordenação de um array é conhecido como "Simple Sort". O mesmo consiste em varrer um array informado diversas vezes, sempre buscando o menor número e o armazenando em outro array.
+    Um exemplo de como o mesmo funciona pode ser analisado abaixo:
+    Array inicial: [ 9, 7, 3, 85, 6, 4, 71, 23, 12 ]
+    
+    // INICIO PROGRAMA
+    DESORDENADO = [ 9, 7, 3, 85, 6, 4, 71, 23, 12 ]
+    ORDENADO = []
+    // PROCURA PELO MENOR NUMERO NO DESORDENADO, O RETIRA DO MESMO E O INSERE NO ARRAY DE ORDENADOS
+    DESORDENADO = [ 9, 7, 85, 6, 4, 71, 23, 12 ]
+    ORDENADO = [ 3 ]
+    // PROCURA PELO MENOR NUMERO NO DESORDENADO, O RETIRA DO MESMO E O INSERE NO ARRAY DE ORDENADOS
+    DESORDENADO = [ 9, 7, 85, 6, 71, 23, 12 ]
+    ORDENADO = [ 3, 4 ]
+    // PROCURA PELO MENOR NUMERO NO DESORDENADO, O RETIRA DO MESMO E O INSERE NO ARRAY DE ORDENADOS
+    DESORDENADO = [ 9, 7, 85, 71, 23, 12 ]
+    ORDENADO = [ 3, 4, 6 ]
+    // ... E ASSIM CONSECUTIVAMENTE ATÉ QUE AO FINAL DO PROCESSO TEMOS O SEGUINTE RESULTADO:
+    DESORDENADO = []
+    ORDENADO = [ 3, 4, 6, 7, 9, 12, 23, 71, 85 ]
+    Array Final: [ 3, 4, 6, 7, 9, 12, 23, 71, 85 ]
+    Dessa maneira, desenvolva um algoritmo que realize a ordenação de um array de números inteiros conforme o processo mencionado anteriormente e a retorne para o usuário.
