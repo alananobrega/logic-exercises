@@ -36,16 +36,17 @@ import (
 func main() {
 	sequencia := []int{9, 7, 3, 85, 6, 4, 71, 23, 12}
 	fmt.Println(sequencia)
-	fmt.Println(ordenare(sequencia))
+	seq_ordenada := ordenare(sequencia)
+	fmt.Println(buscaElemento(90, seq_ordenada))
 }
 
-func ordenare(seqDesordenada []int) []int {
-	tamanho := len(seqDesordenada)
-	seqOrdenada := []int{}
-	for i := 0; i < tamanho; i++ {
+func ordenare(seqDesordenada []int) []int { //O(n²)
+	tamanho := len(seqDesordenada) //1
+	seqOrdenada := []int{}         //1
+	for i := 0; i < tamanho; i++ { //n
 		menorNum := int(^uint(0) >> 1)
 		indMenorNum := 0
-		for ind, num := range seqDesordenada {
+		for ind, num := range seqDesordenada { //n
 			if menorNum > num {
 				menorNum = num
 				indMenorNum = ind
@@ -61,6 +62,32 @@ func remove(slice []int, s int) []int {
 	return append(slice[:s], slice[s+1:]...)
 }
 
-func buscaElemento(elemento int) int {
+// func buscaElemento(elemento int, sequencia []int) int { //O(n)
+// 	var indice int
+// 	for ind, num := range sequencia { //n
+// 		if num == elemento { //1
+// 			indice = ind
+// 		}
+// 	}
+// 	return indice
+// }
 
+func buscaElemento(elemento int, sequencia []int) bool { //O(n)
+	tamanho := len(sequencia) - 1
+	pontoMedio := tamanho / 2
+	fmt.Println(tamanho, pontoMedio)
+	fmt.Println(sequencia)
+	if sequencia[pontoMedio] == elemento {
+		return true
+	}
+	if tamanho == 0 {
+		return false
+	}
+	if sequencia[pontoMedio] > elemento {
+		return buscaElemento(elemento, sequencia[:pontoMedio-1])
+	}
+	if sequencia[pontoMedio] < elemento {
+		return buscaElemento(elemento, sequencia[pontoMedio+1:])
+	}
+	return false
 }
