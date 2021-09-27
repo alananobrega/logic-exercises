@@ -6,7 +6,6 @@ import "fmt"
 // Um exemplo dessa transformação pode ser observado abaixo:
 // Array:  [ 2, 3, 8, 9, 3, 2, 6, 4, 5, 1, 5, 5, 6, 5, 4, 7, 5, 2 ]
 // Unique: [ 2, 3, 8, 9, 6, 4, 5, 1, 7 ]
-// [ 2, 3, 8, 9, 6, 4, 5, 1, 5, 7]
 // Dito isto, desenvolva um algoritmo que remova os valores repetidos de um array e o retorne para o usuário.
 // Lembre-se os elementos não precisam estar na ordem!
 
@@ -36,8 +35,10 @@ func unic(seq []int) []int {
 		for i := ind + 1; i < len(seq); i++ {
 			if v == seq[i] {
 				seq = remove(seq, i)
+				i--
 			}
 		}
+
 		if ind+2 == len(seq) {
 			if v == seq[ind+1] {
 				seq = remove(seq, ind)
