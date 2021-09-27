@@ -16,52 +16,22 @@ import (
 //ver se a string contem algum acento se sim indice -2, menos quntos acentos tiver
 
 func main() {
-	fmt.Println(isPalindromo("Amor a Roma"))
+	fmt.Println(isPalindromo("Meu nome é El Kabong"))
 }
 
-func isPalindromo(sentence string) (string, bool) {
-	//receber uma frase
-	//receber a string e dividi-la em um array
+func isPalindromo(sentence string) (string, bool) { //O(n)
 
-	split_sentence := strings.Split(sentence, "")
-	reverse_sentence := []string{}
+	split_sentence := strings.Split(sentence, "") //1
+	reverse_sentence := []string{}                //1
 
-	fmt.Println(len(sentence))
+	fmt.Println(split_sentence) //1
 
-	for i := len(sentence) - 2; i >= 0; i-- {
-		reverse_sentence = append(reverse_sentence, split_sentence[i])
+	for _, caractere := range split_sentence { //n
+		reverse_sentence = append(reverse_sentence, "x")
+		copy(reverse_sentence[1:], reverse_sentence[0:])
+		reverse_sentence[0] = caractere
+
+		fmt.Println(reverse_sentence)
 	}
-
-	fmt.Println(reverse_sentence)
-	fmt.Println(split_sentence[1])
-
-	//amor
-	//1234
-
-	//4321
-	//roma
-
-	//retorna a frase
-	// phraseRune := []rune(sentence)
 	return sentence, true
 }
-
-// func isPalindromo(sentence string) (string, bool) {
-// 	//receber uma frase
-// 	reverse_sentence := []byte{}
-
-// 	for i := len(sentence) - 1; i >= 0; i-- {
-// 		reverse_sentence = append(reverse_sentence, sentence[i])
-// 	}
-
-// 	fmt.Printf("%c\n", reverse_sentence)
-// 	//amor
-// 	//1234
-
-// 	//4321
-// 	//roma
-
-// 	//retorna a frase
-// 	// phraseRune := []rune(sentence)
-// 	return sentence, true
-// }
