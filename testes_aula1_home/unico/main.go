@@ -30,9 +30,9 @@ func main() {
 //[a,b,c,d]
 //indice - 1
 //{0, 1, 2, 3, 4}
-func unic(seq []int) []int {
-	for ind, v := range seq {
-		for i := ind + 1; i < len(seq); i++ {
+func unic(seq []int) []int {//O(n * log n)
+	for ind, v := range seq {//n
+		for i := ind + 1; i < len(seq); i++ {//log n
 			if v == seq[i] {
 				seq = remove(seq, i)
 				i--
